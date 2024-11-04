@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Save the Forests - Deforestation Awareness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageZoom {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Header Styling */
+        header {
+           
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: rgb(55, 123, 33);
+            animation: fadeIn 2s ease-in-out;
+            
+        }
+        
+        html{
+            scroll-behavior: smooth;
+        }
+        
+
+        header h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        header .btn {
+            padding: 12px 30px;
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        header .btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Navigation Menu */
+        nav {
+            background-color: #2c502e;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 80px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .causes, .impacts, .species, .wwf {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .causes div, .impacts div, .species div, .wwf div {
+            flex: 1 1 45%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .causes div:hover img, .impacts div:hover img, .species div:hover img, .wwf div:hover img {
+            animation: imageZoom 0.5s forwards;
+        }
+
+        .causes div img, .impacts div img, .species div img, .wwf div img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            transition: transform 0.5s ease;
+        }
+
+        .btn-donate {
+            background-color: #1e681c;
+            color: white;
+
+            padding: 12px 40px;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin: 30px 0;
+            cursor: pointer;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-donate:hover {
+            background-color: #1d5c37;
+        }
+
+        /* Donation Options */
+        .donation-options {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .donation-options label {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .donation-options input {
+            margin-right: 15px;
+        }
+
+        .btn-submit-donate {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-submit-donate:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c502e;
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            .causes div, .impacts div, .species div, .wwf div {
+                flex: 1 1 100%;
+            }
+        }
+
+
+        .btn, .btn-submit-donate {
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+
+
+    </style>
+</head>
+<body style="background: url('https://i.ibb.co/PDZd19v/back.jpg')   no-repeat center center/cover;
+            ">
+
+    <nav>
+        <ul>
+            <li><a href="#causes">Causes</a></li>
+            <li><a href="#impacts">Impacts</a></li>
+            <li><a href="#species">Impacted Species</a></li>
+            <li><a href="#wwf">WWF Initiatives</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Stop Deforestation, Save Our Planet</h1>
+        <p>“When the trees go, the air we breathe suffers. Save the forests, save the future.”</p>
+        <a href="#donate" class="btn">Donate Now</a>
+    </header>
+
+    <section id="causes" class="causes-section">
+        <h2 style="color:white">Causes of Deforestation</h2>
+        <div class="causes">
+            <div class="cause-item">
+                <img src="https://i.ibb.co/2KZ2jHZ/log.jpg" alt="Logging Image" class="cause-image">
+                <h3>Logging</h3>
+                <p class="cause-description">
+                    Commercial logging for wood and paper is a major cause of deforestation, leading to significant environmental, social, and economic consequences.
+                </p><br>
+                <h4>Environmental Consequences</h4>
+                <ul class="cause-list">
+                    <li>Habitat destruction and fragmentation</li>
+                    <li>Loss of biodiversity (species extinction, ecosystem disruption)</li>
+                    <li>Soil erosion and increased risk of landslides</li>
+                    <li>Water cycle disruption (reduced water quality, altered river flows)</li>
+                    <li>Climate change (carbon sequestration loss, greenhouse gas emissions)</li>
+                </ul><br>
+                <h4>Social Consequences</h4>
+                <ul class="cause-list">
+                    <li>Indigenous community displacement and cultural heritage loss</li>
+                    <li>Increased risk of conflicts over land and resources</li>
+                    <li>Negative impacts on local livelihoods</li>
+                    <li>Decreased access to clean water and sanitation</li>
+                    <li>Human health risks (air and water pollution)</li>
+                </ul><br>
+                <h4>Economic Consequences</h4>
+                <ul class="cause-list">
+                    <li>Short-term economic gains vs. long-term sustainability</li>
+                    <li>Loss of ecosystem services (timber, non-timber forest products)</li>
+                    <li>Decreased tourism and recreation opportunities</li>
+                    <li>Increased risk of natural disasters (floods, landslides)</li>
+                    <li>Negative impacts on global economy (climate change, resource depletion)</li>
+                </ul><br>
+                <h4>Examples of Logging's Impact</h4>
+                <ul class="cause-list">
+                    <li>Amazon rainforest (20% loss in 50 years)</li>
+                    <li>Southeast Asian forests (30% loss in 20 years)</li>
+                    <li>Congo Basin (10% loss in 10 years)</li>
+                    <li>Ancient forests in British Columbia, Canada</li>
+                    <li>Indonesia's palm oil plantations</li>
+                </ul>
+            </div>
+            
+            <div class="cause-item">
+                <img src="https://i.ibb.co/tKfWfFQ/agri.jpg" alt="Agriculture Image" class="cause-image">
+                <h3>Agriculture</h3>
+                <p class="cause-description">
+                    Expanding agricultural activities like palm oil, soy, and cattle ranching destroy vast areas of forest. Agriculture is the backbone of human civilization, providing food, fiber, and livelihoods for billions worldwide.
+                </p><br>
+                <h4>Importance of Agriculture</h4>
+                <ul class="cause-list">
+                    <li>Food security: Produces essential nutrients for human consumption.</li>
+                    <li>Economic growth: Contributes significantly to GDP.</li>
+                    <li>Environmental stewardship: Sustainable practices conserve resources.</li>
+                    <li>Social stability: Supports rural communities and cultural heritage.</li>
+                </ul><br>
+                <h4>Challenges Facing Agriculture</h4>
+                <ul class="cause-list">
+                    <li>Climate change: Rising temperatures and altered precipitation patterns.</li>
+                    <li>Water scarcity: Irrigation demands strain limited resources.</li>
+                    <li>Soil degradation: Erosion and nutrient depletion threaten fertility.</li>
+                    <li>Biodiversity loss: Monoculture farming imperils ecosystem services.</li>
+                </ul><br>
+                <h4>Sustainable Agriculture Solutions</h4>
+                <ul class="cause-list">
+                    <li>Organic farming: Chemical-free, environmentally friendly practices.</li>
+                    <li>Precision agriculture: Technology-driven efficiency, reduced waste.</li>
+                    <li>Crop rotation: Enhanced soil health and biodiversity.</li>
+                    <li>Irrigation management: Water-saving techniques like drip irrigation.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="impacts" class="impacts-section">
+        <h2 style="color:white">Impacts of Deforestation</h2>
+        <div class="impacts">
+            <div class="impact-item">
+                <img src="https://i.ibb.co/7bnJtd4/climate.jpg" alt="Climate Change Image" class="impact-image">
+                <h3>Climate Change</h3>
+                <p class="impact-description">
+                    Forests play a critical role in absorbing carbon dioxide, and deforestation significantly contributes to climate change. This pressing global concern threatens the environment, human health, and economic stability.
+                </p><br>
+                <h4>Causes and Effects</h4>
+                <p>
+                    The primary causes of climate change include:
+                </p>
+                <ul class="impact-list">
+                    <li>Burning of fossil fuels</li>
+                    <li>Deforestation</li>
+                    <li>Agriculture</li>
+                    <li>Industrial processes</li>
+                    <li>Transportation</li>
+                </ul>
+                <p>
+                    These activities release greenhouse gases, leading to:
+                </p>
+                <ul class="impact-list">
+                    <li>Rising sea levels and coastal flooding</li>
+                    <li>Increased frequency of extreme weather events</li>
+                    <li>Changes in precipitation patterns and water scarcity</li>
+                    <li>Loss of biodiversity and ecosystem disruption</li>
+                </ul><br>
+                <h4>Consequences and Impacts</h4>
+                <ul class="impact-list">
+                    <li>Threatened global food security, exacerbating hunger</li>
+                    <li>Compromised human health with increased risk of diseases</li>
+                    <li>Undermined economic stability due to infrastructure damage</li>
+                    <li>Displacement of vulnerable communities, worsening social inequalities</li>
+                </ul>
+            </div>
+    
+            <div class="impact-item">
+                <img src="https://i.ibb.co/yB0h1t2/loss.jpg" alt="Biodiversity Loss Image" class="impact-image">
+                <h3>Biodiversity Loss</h3>
+                <p class="impact-description">
+                    Deforestation leads to habitat loss, resulting in extinction and endangerment of species. Biodiversity loss is a silent crisis threatening life on Earth.
+                </p><br>
+                <h4>Causes of Biodiversity Loss</h4>
+                <ul class="impact-list">
+                    <li>Habitat destruction and fragmentation</li>
+                    <li>Overexploitation of resources</li>
+                    <li>Climate change and pollution</li>
+                    <li>Invasive species and disease</li>
+                    <li>Human population growth and consumption patterns</li>
+                </ul><br>
+                <h4>Consequences of Biodiversity Loss</h4>
+                <ul class="impact-list">
+                    <li>Ecosystem disruption and collapse</li>
+                    <li>Loss of ecosystem services (e.g., pollination)</li>
+                    <li>Decreased crop yields and food security</li>
+                    <li>Increased disease transmission and health risks</li>
+                    <li>Economic instability and loss of livelihoods</li>
+                </ul><br>
+                <h4>Examples of Biodiversity Loss</h4>
+                <ul class="impact-list">
+                    <li>Amazon rainforest deforestation (15% loss in 50 years)</li>
+                    <li>Coral reef bleaching (30% loss since 1980)</li>
+                    <li>African elephant decline (90% in 100 years)</li>
+                    <li>Monarch butterfly population decline (90% in 20 years)</li>
+                    <li>Species extinction (200-1,000 times natural rate)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="species" class="species-section">
+        <h2 style="color:white">Impacted Species & Places</h2>
+        <div class="species">
+            <div class="species-item">
+                <img src="https://i.ibb.co/DVTbgLW/tiger.jpg" alt="Tiger Image" class="species-image">
+                <h3>Tigers</h3>
+                <p class="species-description">
+                    The destruction of their forest habitats threatens tiger populations in Asia.
+                </p><br>
+                <h4>The Majestic Tiger: Endangered and in Need of Protection</h4>
+                <p>
+                    With only 3,900 remaining in the wild, tigers face dire threats due to habitat loss, poaching, and human-tiger conflict.
+                </p><br>
+                <h4>Habitat Loss and Fragmentation</h4>
+                <p>
+                    Deforestation and urbanization have led to fragmented forests, leaving behind habitats that cannot sustain viable tiger populations.
+                </p><br>
+                <h4>Poaching and Human-Tiger Conflict</h4>
+                <p>
+                    Tigers are hunted for their body parts used in traditional medicine, and conflicts arise when they enter agricultural areas, leading to retaliation against them.
+                </p><br>
+                <h4>Conservation Efforts</h4>
+                <ul class="species-list">
+                    <li>Protected areas: National parks and wildlife sanctuaries provide safe habitats.</li>
+                    <li>Anti-poaching units: Patrols and surveillance prevent hunting.</li>
+                    <li>Community engagement: Education and incentives encourage coexistence.</li>
+                    <li>Reintroduction programs: Restoring tigers to their natural habitats.</li>
+                </ul><br>
+                <h4>What You Can Do</h4>
+                <ul class="species-list">
+                    <li>Support organizations: Donate to reputable conservation groups.</li>
+                    <li>Spread awareness: Share information on tiger conservation.</li>
+                    <li>Sustainable choices: Choose eco-friendly products to reduce deforestation.</li>
+                    <li>Visit tiger reserves: Responsible tourism supports conservation.</li>
+                </ul>
+            </div>
+    
+            <div class="species-item">
+                <img src="https://i.ibb.co/Zf3dqxk/amazon.jpg" alt="Amazon Rainforest" class="species-image">
+                <h3>Amazon Rainforest</h3>
+                <p class="species-description">
+                    The Amazon, known as the lungs of the Earth, is losing its forest cover at an alarming rate due to deforestation.
+                </p><br>
+                <h4>The Importance of the Amazon Rainforest</h4>
+                <p>
+                    Spanning 5.5 million square kilometers, it produces 20% of the world's oxygen and supports 10% of all known species.
+                </p><br>
+                <h4>Causes of Deforestation</h4>
+                <ul class="species-list">
+                    <li>Agricultural expansion (70%): Cattle ranching, soybean farming, and palm oil plantations.</li>
+                    <li>Logging (15%): Timber extraction for wood and paper products.</li>
+                    <li>Mining (10%): Extraction of gold, copper, and other minerals.</li>
+                    <li>Infrastructure development (5%): Roads, dams, and urbanization.</li>
+                </ul><br>
+                <h4>Consequences</h4>
+                <ul class="species-list">
+                    <li>Loss of biodiversity: Extinction of indigenous species and ecosystem disruption.</li>
+                    <li>Climate change: Increased greenhouse gas emissions and reduced carbon sequestration.</li>
+                    <li>Water cycle disruption: Impacting river flow, precipitation, and weather patterns.</li>
+                    <li>Threats to indigenous communities: Affecting livelihoods, culture, and traditional lands.</li>
+                </ul><br>
+                <h4>Alarming Statistics</h4>
+                <ul class="species-list">
+                    <li>17% of the Amazon has been lost in the past 50 years.</li>
+                    <li>2,300 trees are cut down every minute.</li>
+                    <li>200,000 square kilometers are deforested annually.</li>
+                </ul><br>
+                <h4>Solutions</h4>
+                <ul class="species-list">
+                    <li>Sustainable land-use planning: Balancing agriculture, conservation, and development.</li>
+                    <li>Protected areas: Establishing and maintaining national parks and wildlife reserves.</li>
+                    <li>Certification and labeling: Promoting responsible forestry and agriculture practices.</li>
+                    <li>Community-led conservation: Empowering indigenous peoples to manage their lands.</li>
+                    <li>International cooperation: Collaborating on climate change and sustainable development.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="wwf" class="wwf-section">
+        <h2 style="color:white">What WWF Is Doing</h2>
+        <div class="wwf">
+            <div class="wwf-item">
+                <img src="https://i.ibb.co/JBrRzNY/www.jpg" alt="WWF Image" class="wwf-image">
+                <h3>Conservation Efforts</h3>
+                <p class="wwf-description">
+                    WWF works globally to conserve forests through sustainable practices, policy changes, and on-the-ground projects.
+                </p><br>
+                <h4>WWF Conservation Efforts: Protecting Forests Globally</h4>
+                <p>
+                    The World Wildlife Fund (WWF) is dedicated to conserving nature and addressing the most pressing threats to biodiversity. One of its key areas of focus is forest conservation, recognizing the critical role forests play in maintaining ecosystem balance, supporting biodiversity, and mitigating climate change.
+                </p><br>
+                <h4>Sustainable Practices</h4>
+                <ul class="wwf-list">
+                    <li>Certification schemes (e.g., FSC) ensuring responsible logging.</li>
+                    <li>Community-led forest management.</li>
+                    <li>Agroforestry practices that combine agriculture and forestry.</li>
+                </ul><br>
+                <h4>Policy Changes</h4>
+                <ul class="wwf-list">
+                    <li>Strengthening forest protection laws.</li>
+                    <li>Encouraging sustainable land-use planning.</li>
+                    <li>Supporting international agreements (e.g., UN REDD+).</li>
+                </ul><br>
+                <h4>On-the-Ground Projects</h4>
+                <ul class="wwf-list">
+                    <li>Reforestation and restoration initiatives.</li>
+                    <li>Community engagement and capacity building.</li>
+                    <li>Research and monitoring programs.</li>
+                </ul><br>
+                <h4>Key Initiatives</h4>
+                <ul class="wwf-list">
+                    <li>Heart of Borneo: Conserving 240,000 km² of rainforest.</li>
+                    <li>Amazon Region: Protecting 60% of the Amazon rainforest.</li>
+                    <li>Congo Basin: Supporting sustainable forest management.</li>
+                </ul><br>
+                <h4>Impact</h4>
+                <ul class="wwf-list">
+                    <li>Protected over 100 million hectares of forest.</li>
+                    <li>Supported 300+ community-led conservation projects.</li>
+                    <li>Engaged 1000+ local communities.</li>
+                </ul><br>
+                <h4>Challenges Ahead</h4>
+                <ul class="wwf-list">
+                    <li>Deforestation and habitat loss.</li>
+                    <li>Climate change and forest fires.</li>
+                    <li>Insufficient funding and policy support.</li>
+                </ul>
+            </div>
+    
+            <div class="wwf-item">
+                <img src="https://i.ibb.co/kHxby74/re.jpg" alt="Reforestation Image" class="wwf-image">
+                <h3>Reforestation Projects</h3>
+                <p class="wwf-description">
+                    WWF supports large-scale reforestation projects to restore lost forests and bring balance back to ecosystems.
+                </p><br>
+                <h4>Reforestation Projects: WWF's Efforts to Restore Lost Forests</h4>
+                <p>
+                    WWF recognizes the vital importance of forests in maintaining ecosystem balance, supporting biodiversity, and mitigating climate change. To combat deforestation and habitat loss, WWF backs large-scale reforestation projects worldwide.
+                </p><br>
+                <h4>Restoring Lost Forests</h4>
+                <ul class="wwf-list">
+                    <li>Habitat Restoration: Replanting native species to revive degraded forests.</li>
+                    <li>Biodiversity Conservation: Protecting critical habitats for endangered species.</li>
+                    <li>Climate Change Mitigation: Absorbing carbon dioxide through reforestation.</li>
+                </ul><br>
+                <h4>Key Projects</h4>
+                <ul class="wwf-list">
+                    <li>Trillion Trees Initiative: Aiming to plant, restore, and conserve 1 trillion trees by 2050.</li>
+                    <li>Reforestation in the Amazon: Restoring 30% of the Amazon rainforest by 2030.</li>
+                    <li>Forest Restoration in Africa: Reviving 150 million hectares of degraded land.</li>
+                </ul><br>
+                <h4>Community Engagement</h4>
+                <ul class="wwf-list">
+                    <li>Promote Sustainable Land-Use: Encouraging eco-friendly agriculture and forestry practices.</li>
+                    <li>Build Capacity: Training community members in reforestation and forest management.</li>
+                    <li>Support Livelihoods: Creating income opportunities through sustainable forest products.</li>
+                </ul><br>
+                <h4>Impact</h4>
+                <ul class="wwf-list">
+                    <li>Restored over 10 million hectares of forest.</li>
+                    <li>Supported 500+ community-led conservation initiatives.</li>
+                    <li>Engaged 100,000+ local community members.</li>
+                </ul><br>
+                <h4>Challenges Ahead</h4>
+                <ul class="wwf-list">
+                    <li>Ongoing habitat loss due to agriculture, urbanization, and logging.</li>
+                    <li>Climate change: Rising temperatures and altered ecosystems.</li>
+                    <li>Funding: Insufficient resources to scale up reforestation efforts.</li>
+                </ul><br>
+                <h4>Conclusion</h4>
+                <p>
+                    WWF's reforestation projects demonstrate the organization's commitment to restoring the world's forests. Continued support and collaboration are crucial to addressing the pressing challenges facing global forest conservation.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="donate" style="text-align: center;">
+        <h2 style="color: #1d5c37;">Make a Difference: Donate Today</h2>
+        <p > <h2 style="color:white">Your donation helps fund critical conservation efforts worldwide. Together, we can stop deforestation and save the planet.</p> </h2>
+        
+        <!-- Donation Options -->
+        <div class="donation-options">
+            <label><input type="radio" name="donation" value="25">$25</label>
+            <label><input type="radio" name="donation" value="50">$50</label>
+            <label><input type="radio" name="donation" value="100">$100</label>
+            <label><input type="radio" name="donation" value="200">$200</label>
+            <label><input type="radio" name="donation" value="500">$500</label>
+        </div>
+        <button type="submit" class="btn-submit-donate">Donate Now</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Save the Forests | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
